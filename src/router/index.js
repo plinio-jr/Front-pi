@@ -5,6 +5,7 @@ import LoginView from '../views/LoginView.vue';
 import CadastroView from '@/views/CadastroView.vue';
 import ListaView from '@/views/ListaView.vue';
 import ProdutoView from '@/views/ProdutoView.vue';
+import MercadoView from '@/views/MercadoView.vue';
 
 const routes = [
   {
@@ -36,6 +37,11 @@ const routes = [
     path: '/produtos',
     name: 'produtos',
     component: ProdutoView
+  },
+  {
+    path: '/mercados',
+    name: 'mercados',
+    component: MercadoView
   },
 ]
 

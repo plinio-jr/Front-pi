@@ -1,6 +1,6 @@
 import axios from 'axios';
 export default class MercadosApi {
-  async buscarTodasOsMercados() {
+  async buscarTodosOsMercados() {
     const { data } = await axios.get('/mercados/');
     return data;
   }
@@ -13,7 +13,7 @@ export default class MercadosApi {
     return data;
   }
   async excluirMercado(id) {
-    const { data } = await axios.mercado(`/mercados/${id}/`);
+    const { data } = await axios.delete(`/mercados/${id}/`);
     return data;
   }
 }
