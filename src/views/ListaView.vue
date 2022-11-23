@@ -13,7 +13,7 @@ export default {
   },
   methods: {
     async salvar() {
-      if (this.lista.id) {
+      if (this.listas.id) {
         await listasApi.atualizarLista(this.lista);
       } else {
         await listasApi.adicionarLista(this.lista);
@@ -25,7 +25,7 @@ export default {
       Object.assign(this.lista, lista);
     },
     async excluir(lista) {
-      await listasApi.excluirCategoria(lista.id);
+      await listasApi.excluirLista(lista.id);
       this.listas = await listasApi.buscarTodasAsLista();
     },
   },
@@ -33,10 +33,10 @@ export default {
 </script>
 
 <template>
-  <h1>Categoria</h1>
+  <h1>Listas</h1>
   <hr />
   <div class="form">
-    <input type="text" v-model="lista.titulo" placeholder="Titulo" />
+    <input type="text" v-model="lista.nome" placeholder="Titulo" />
     <input type="text" v-model="lista.descricao" placeholder="Descrição" />
     <button @click="salvar">Salvar</button>
   </div>
@@ -44,7 +44,7 @@ export default {
   <ul>
     <li v-for="lista in listas" :key="lista.id">
       <span @click="editar(lista)">
-        ({{ lista.id }}) - {{ lista.descricao }} -
+       {{ lista.nome }} - {{ lista.descricao }} -
       </span>
       <button @click="excluir(lista)">X</button>
     </li>

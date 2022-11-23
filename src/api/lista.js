@@ -12,7 +12,7 @@ export default class ListasApi {
     const { data } = await axios.put(`/listas/${lista.id}/`, lista);
     return data;
   }
-  async excluirlista(id) {
+  async excluirLista(id) {
     const { data } = await axios.delete(`/listas/${id}/`);
     return data;
   }
