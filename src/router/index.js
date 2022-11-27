@@ -6,44 +6,72 @@ import CadastroView from '@/views/CadastroView.vue';
 import ListaView from '@/views/ListaView.vue';
 import ProdutoView from '@/views/ProdutoView.vue';
 import MercadoView from '@/views/MercadoView.vue';
+import PerfilView from '@/views/PerfilView.vue';
 
 const routes = [
   {
-    path: '/',
-    name: 'home',
-    component: HomeView
+    path: "/",
+    component: () => import("@/layouts/FullView.vue"),
+    meta: {
+      auth: true
+    },
+    children: [
+      {
+        path: "/home",
+        name: "Home",
+        component: HomeView,
+      },
+      
+      {
+        path: "/about",
+        name: "about",
+        component: AboutView,
+      },
+      {
+        path: "/listas",
+        name: "Listas",
+        component: ListaView,
+      },
+      {
+        path: "/mercados",
+        name: "Mercados",
+        component: MercadoView,
+      },
+      {
+        path: "/produtos",
+        name: "Produtos",
+        component: ProdutoView,
+      },
+      {
+        path: "/perfil",
+        name: "/perfil",
+        component: PerfilView,
+      },
+    ],
   },
   {
-    path: '/about',
-    name: 'about',
-    component: AboutView
+    path: "/",
+    component: () => import("@/layouts/BlankView.vue"),
+    meta: {
+      auth: false,
+    },
+    children: [
+      {
+        path: "/login",
+        name: "Login",
+        component: LoginView
+      },
+      {
+        path: "/cadastro",
+        name: "/cadastro",
+        meta: {
+          auth: false,
+        },
+        component: CadastroView
+      },
+    ],
   },
-  {
-    path: '/login',
-    name: 'login',
-    component: LoginView
-  },
-  {
-    path: '/cadastro',
-    name: 'cadastro',
-    component: CadastroView
-  },
-  {
-    path: '/listas',
-    name: 'listas',
-    component: ListaView
-  },
-  {
-    path: '/produtos',
-    name: 'produtos',
-    component: ProdutoView
-  },
-  {
-    path: '/mercados',
-    name: 'mercados',
-    component: MercadoView
-  },
-]
+];
 
 const router = createRouter({
   history: createWebHistory(process.env.BASE_URL),
