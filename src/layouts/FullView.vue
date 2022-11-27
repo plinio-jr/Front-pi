@@ -1,33 +1,62 @@
 <template>
-    <nav>
-      <nav class="navbar navbar-expand-lg bg-light">
-    <div class="container-fluid">
-      <a class="navbar-brand" href="#">Navbar</a>
-      <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarText" aria-controls="navbarText" aria-expanded="false" aria-label="Toggle navigation">
-        <span class="navbar-toggler-icon"></span>
-      </button>
-      <div class="collapse navbar-collapse" id="navbarText">
-        <ul class="navbar-nav me-auto mb-2 mb-lg-0">
-          <li class="nav-item">
-            <a class="nav-link active" aria-current="page" href="/home">Home</a>
-          </li>
-          <li class="nav-item">
-            <a class="nav-link" href="/listas">Listas</a>
-          </li>
-          <li class="nav-item">
-            <a class="nav-link" href="/mercados">Mercados</a>
-          </li>
-          <li class="nav-item">
-            <a class="nav-link" href="/produtos">Produtos</a>
-          </li>
-          <li class="nav-item">
-            <a class="nav-link" href="/perfil">Perfil</a>
-          </li>
-        </ul> 
+    <div id="wrapper">
+    <nav class="navbar">
+      <div class="navbar-brand">
+
+        <a class="navbar-burger" aria-label="menu" aria-expanded="false" data-target="navbar-menu" @click="showMobileMenu =!showMobileMenu">
+          <span aria-hidden="true"></span>
+          <span aria-hidden="true"></span>
+          <span aria-hidden="true"></span>
+        </a>
       </div>
+
+      <div class="navbar-menu" id="navbar-menu" v-bind:class="{'is-active': showMobileMenu }">
+          <div class="navbar-start">
+            <div class="navbar-item">
+              <form method="get" action="/search">
+                <div class="field has-addons">
+                  <div class="control">
+                    <input type="text" class="input" placeholder="Pesquisar Lista" name="query">
+                  </div>
+
+                  <div class="control">
+                    <button class="button is-success">
+                      <span class="icon">
+                        <i class="fas fa-search"></i>
+                      </span>
+                    </button>
+                  </div>
+                </div>
+              </form>
+            </div>
+          </div>
+          
+
+        <div class="navbar-end">
+          <router-link to="/" class="navbar-item">Home</router-link>
+          <router-link to="/about" class="navbar-item">Sobre</router-link>
+          <router-link to="/listas" class="navbar-item">Listas</router-link>
+          <router-link to="/produtos" class="navbar-item">Produtos</router-link>
+          <router-link to="/mercados" class="navbar-item">Mercados</router-link>
+          <router-link to="/perfil" class="navbar-item">perfil</router-link>
+        
+        
+        </div>
+      </div>
+    </nav>
+
+    <div class="is-loading-bar has-text-centered" v-bind:class="{'is-loading': $store.state.isLoading}">
+      <div class="lds-dual-ring"></div>
     </div>
-  </nav>
-  </nav>
+
+    <section class="selection">
+      <router-view/>
+    </section>
+    
+    <footer class="footer">
+      <p class="has-text-centered">Copyright (c) 2022</p>
+    </footer>
+  </div>
     <router-view/>
   </template>
   

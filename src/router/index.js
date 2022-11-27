@@ -53,12 +53,12 @@ const routes = [
     path: "/",
     component: () => import("@/layouts/BlankView.vue"),
     meta: {
-      auth: false,
+      auth: true,
     },
     children: [
       {
         path: "/login",
-        name: "Login",
+        name: "/login",
         component: LoginView
       },
       {
