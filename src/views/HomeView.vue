@@ -1,6 +1,8 @@
 <template>
   <div class="home">
-    <h1>Home</h1>
+    <div class="logo">
+                    <img src="@/assets/image1.webp" />
+              </div>
   </div>
 </template>
 
@@ -13,3 +15,14 @@ export default {
   }
 }
 </script>
+
+<style scoped>
+.logo img{
+  width: 100vw;
+  height: 100vh;
+}
+.logo {
+  width: 100vw;
+  height: 45vw;
+}
+</style>

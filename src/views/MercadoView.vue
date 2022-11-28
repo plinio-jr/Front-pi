@@ -33,6 +33,9 @@ export default {
 </script>
 
 <template>
+<div class="logo">
+                    <img src="@/assets/image8.jpg" />
+                  </div>
   <h1>Mercados</h1>
   <hr />
   <div class="form">
@@ -54,4 +57,13 @@ export default {
   </ul>
 </template>
 
-<style></style>
+<style>
+.logo img{
+  width: 100vw;
+  height: 100vh;
+}
+.logo {
+  width: 100vw;
+  height: 10vw;
+}
+</style>

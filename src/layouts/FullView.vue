@@ -22,7 +22,7 @@
                   <div class="control">
                     <button class="button is-success">
                       <span class="icon">
-                        <i class="fas fa-search"></i>
+                        <SearchWeb />
                       </span>
                     </button>
                   </div>
@@ -33,12 +33,12 @@
           
 
         <div class="navbar-end">
-          <router-link to="/" class="navbar-item">Home</router-link>
-          <router-link to="/about" class="navbar-item">Sobre</router-link>
-          <router-link to="/listas" class="navbar-item">Listas</router-link>
-          <router-link to="/produtos" class="navbar-item">Produtos</router-link>
-          <router-link to="/mercados" class="navbar-item">Mercados</router-link>
-          <router-link to="/perfil" class="navbar-item">perfil</router-link>
+          <router-link to="/home" class="navbar-item"><Home /> Home</router-link>
+          <router-link to="/about" class="navbar-item"><DotsHorizontal />Sobre</router-link>
+          <router-link to="/listas" class="navbar-item"><ListStatus />Listas</router-link>
+          <router-link to="/produtos" class="navbar-item"><CartPlus />Produtos</router-link>
+          <router-link to="/mercados" class="navbar-item"><StoreMarker />Mercados</router-link>
+          <router-link to="/perfil" class="navbar-item"><AccountEdit/> perfil</router-link>
         
         
         </div>
@@ -57,37 +57,22 @@
       <p class="has-text-centered">Copyright (c) 2022</p>
     </footer>
   </div>
-    <router-view/>
   </template>
   
   <style>
-  #app {
-    font-family: Avenir, Helvetica, Arial, sans-serif;
-    -webkit-font-smoothing: antialiased;
-    -moz-osx-font-smoothing: grayscale;
-    text-align: center;
-    color: #2c3e50;
-  }
-  
-  nav {
-    padding: 30px;
-  }
-  
-  nav a {
-    font-weight: bold;
-    color: #2c3e50;
-  }
-  
-  nav a.router-link-exact-active {
-    color: #42b983;
-  }
   </style>
   
   <script>
-  
+  import AccountEdit from 'vue-material-design-icons/AccountEdit.vue'
+  import Home from 'vue-material-design-icons/Home.vue'
+  import StoreMarker from 'vue-material-design-icons/StoreMarkerOutline.vue'
+  import DotsHorizontal from 'vue-material-design-icons/DotsHorizontal.vue'
+  import ListStatus from 'vue-material-design-icons/ListStatus.vue'
+  import CartPlus from 'vue-material-design-icons/CartPlus.vue'
+  import SearchWeb from 'vue-material-design-icons/SearchWeb.vue'
   
   export default{
-  
+  components: {AccountEdit, Home, StoreMarker, DotsHorizontal, ListStatus, CartPlus, SearchWeb}
   }
   
   </script>

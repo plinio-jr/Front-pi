@@ -33,8 +33,10 @@ export default {
 </script>
 
 <template>
+<div class="logo">
+                    <img src="@/assets/image2.webp" />
+              </div>
   <h1>Produtos</h1>
-  <hr />
   <div class="form">
     <input type="text" v-model="produto.nome" placeholder="nome" />
     <input type="text" v-model="produto.categoria" placeholder="categoria" />
@@ -43,7 +45,6 @@ export default {
     <input type="text" v-model="produto.preco" placeholder="preço">
     <button @click="salvar">Salvar</button>
   </div>
-  <hr />
   <ul>
     <li v-for="produto in produtos" :key="produto.id">
       <span @click="editar(produto)">
@@ -55,4 +56,11 @@ export default {
   </ul>
 </template>
 
-<style></style>
+<style scoped>
+.logo img{
+  width: 100vw;
+  height: 100vh;
+}
+
+
+</style>
