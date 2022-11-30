@@ -72,7 +72,12 @@
   import SearchWeb from 'vue-material-design-icons/SearchWeb.vue'
   
   export default{
-  components: {AccountEdit, Home, StoreMarker, DotsHorizontal, ListStatus, CartPlus, SearchWeb}
+  components: {AccountEdit, Home, StoreMarker, DotsHorizontal, ListStatus, CartPlus, SearchWeb},
+  data() {
+    return{
+      showMobileMenu: false,
+    }
+  }
   }
   
   </script>

@@ -44,7 +44,7 @@ export default {
     <input type="text" v-model="mercado.bairro" placeholder="Bairro" />
     <input type="text" v-model="mercado.cidade" placeholder="Cidade" />
     <input type="text" v-model="mercado.avaliacao" placeholder="avaliação">
-    <button @click="salvar">Salvar</button>
+    <button class="button is-success" @click="salvar">Salvar</button>
   </div>
   <hr />
   <ul>
@@ -52,7 +52,8 @@ export default {
       <span @click="editar(mercado)">
        {{ mercado.nome }} - {{ mercado.rua }} -{{ mercado.bairro }} - {{ mercado.cidade }} - {{ mercado.avaliacao }}
       </span>
-      <button @click="excluir(mercado)">X</button>
+      <button class="button is-warning" @click="editar(mercado)">Editar</button>
+      <button class="button is-danger" @click="excluir(mercado)">Excluir</button>
     </li>
   </ul>
 </template>

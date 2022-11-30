@@ -1,4 +1,5 @@
 <script>
+import Delete from 'vue-material-design-icons/Delete.vue';
 import ListasApi from "@/api/lista";
 const listasApi = new ListasApi();
 export default {
@@ -6,6 +7,7 @@ export default {
     return {
       listas: [],
       lista: {},
+      components: [Delete]
     };
   },
   async created() {
@@ -38,15 +40,20 @@ export default {
   <div class="form">
     <input type="text" v-model="lista.nome" placeholder="Titulo" />
     <input type="text" v-model="lista.descricao" placeholder="Descrição" />
-    <button @click="salvar">Salvar</button>
+    <input type="file" placeholder="Imagem" />
+    <button class="button is-success" @click="salvar">Salvar</button>
   </div>
-  <hr />
+  <hr>
   <ul>
     <li v-for="lista in listas" :key="lista.id">
       <span @click="editar(lista)">
-       {{ lista.nome }} - {{ lista.descricao }} -
+       {{ lista.nome }} 
+       <hr>
+       {{ lista.descricao }} 
+       {{ lista.capa}}
       </span>
-      <button @click="excluir(lista)">X</button>
+      <button class="button is-warning" @click="editar(lista)">Editar</button>
+      <button class="button is-danger"  @click="excluir(lista)">Excluir</button> 
     </li>
   </ul>
 </template>

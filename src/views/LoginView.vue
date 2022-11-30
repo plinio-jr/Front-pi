@@ -1,59 +1,74 @@
 <template>
-    <div class="page-log-in">
-      <div class="logo" >
-            <img src="@/assets/image3.jpg" />
-        <div class="columns">
-            <div class="column is-4 is-offset-4">
-                <h1 class="title">Login</h1>
+  <div class="body">
+    <div class="container">
+      <div class="header">
+        <h2>Entre novamente no Success Student</h2>
+      </div>
 
-
-                <form @submit.prevent="submitForm">
-                    <div class="cabecalho">
-                        <label>Email</label>
-                        <div class="control">
-                            <input type="text" class="input" v-model="username">
-                        </div>
-                    </div>
-
-                    <div class="field">
-                        <label>Senha</label>
-                        <div class="control">
-                            <input type="password" class="input" v-model="password">
-                        </div>
-                    </div>
-                    
-                    <div class="notification is-danger" v-if="errors.length">
-                        <p v-for="error in errors" v-bind:key="error">{{ error }}</p>
-                    </div>
-
-                    <div class="field">
-                        <div class="control">
-                            <button class="button is-dark">Login</button>
-                        </div>
-                    </div>
-
-                    <hr>
-
-                    <router-link to="/cadastro">clique aqui</router-link> para se Cadastrar!
-                </form>
-            </div>
-          </div>
+      <form id="form" class="form" @submit.prevent="logarUsuario">
+        <div class="form-control">
+          <label for="email">Username</label>
+          <input
+            type="text"
+            v-model="auth.username"
+            id="username"
+            placeholder="Digite seu username"
+          />
+          <i class="fas fa-exclamation-circle"></i>
+          <i class="fas fa-check-circle"></i>
+          <small></small>
         </div>
+
+        <div class="form-control">
+          <label for="email">E-mail</label>
+          <input
+            type="text"
+            v-model="auth.email"
+            id="email"
+            placeholder="Digite seu E-mail"
+          />
+          <i class="fas fa-exclamation-circle"></i>
+          <i class="fas fa-check-circle"></i>
+          <small></small>
+        </div>
+
+        <div class="form-control">
+          <label for="password">Senha</label>
+          <input
+            type="password"
+            v-model="auth.password"
+            id="password"
+            placeholder="Digite sua senha"
+          />
+          <i class="fas fa-exclamation-circle"></i>
+          <i class="fas fa-check-circle"></i>
+          <small></small>
+        </div>
+        <button type="submit" class="botao">Enviar</button>
+      </form>
     </div>
+  </div>
 </template>
 
 <script>
-
+import axios from "axios";
 export default {
-    name: 'LogIn',
-    data() {
-        return {
-            username: '',
-            password: '',
-            errors: []
-        }
+  data() {
+    return {
+      auth: {},
+    };
+  },
+  methods: {
+    async logarUsuario() {
+      try {
+        await axios.post("http://localhost:8000/auth/login/", this.auth);
+        alert("Usuario logado com sucesso");
+      } catch (e) {
+        alert("algum erro");
+      }
     },
-}
+  },
+};
 </script>
 
 <style scoped>
@@ -65,5 +80,4 @@ export default {
   width: 100vw;
   height: 10vw;
 }
-
 </style>

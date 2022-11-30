@@ -43,15 +43,15 @@ export default {
     <input type="text" v-model="produto.quantidade" placeholder="quantidade" />
     <input type="text" v-model="produto.peso" placeholder="peso" />
     <input type="text" v-model="produto.preco" placeholder="preço">
-    <button @click="salvar">Salvar</button>
+    <button class="button is-success" @click="salvar">Salvar</button>
   </div>
   <ul>
     <li v-for="produto in produtos" :key="produto.id">
       <span @click="editar(produto)">
        {{ produto.nome }} - {{ produto.categoria }} -{{ produto.quantidade }} - {{ produto.peso }} - {{ produto.preco }} - {{ produto.mercado }}
       </span>
-      <button @click="excluir(produto)">X</button>
-      <button @click="editar(produto)">E</button>
+      <button class="button is-warning" @click="editar(produto)">Editar</button>
+      <button class="button is-danger" @click="excluir(produto)">Excluir</button>
     </li>
   </ul>
 </template>
