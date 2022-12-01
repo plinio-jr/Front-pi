@@ -33,9 +33,9 @@ export default {
 </script>
 
 <template>
-<div class="logo">
-                    <img src="@/assets/image8.jpg" />
-                  </div>
+  <div class="logo">
+    <img src="@/assets/image8.jpg" />
+  </div>
   <h1>Mercados</h1>
   <hr />
   <div class="form">
@@ -43,28 +43,32 @@ export default {
     <input type="text" v-model="mercado.rua" placeholder="Rua" />
     <input type="text" v-model="mercado.bairro" placeholder="Bairro" />
     <input type="text" v-model="mercado.cidade" placeholder="Cidade" />
-    <input type="text" v-model="mercado.avaliacao" placeholder="avaliação">
+    <input type="text" v-model="mercado.avaliacao" placeholder="avaliação" />
     <button class="button is-success" @click="salvar">Salvar</button>
   </div>
   <hr />
   <ul>
     <li v-for="mercado in mercados" :key="mercado.id">
       <span @click="editar(mercado)">
-       {{ mercado.nome }} - {{ mercado.rua }} -{{ mercado.bairro }} - {{ mercado.cidade }} - {{ mercado.avaliacao }}
+        {{ mercado.nome }} - {{ mercado.rua }} -{{ mercado.bairro }} -
+        {{ mercado.cidade }} - {{ mercado.avaliacao }}
       </span>
       <button class="button is-warning" @click="editar(mercado)">Editar</button>
-      <button class="button is-danger" @click="excluir(mercado)">Excluir</button>
+      <button class="button is-danger" @click="excluir(mercado)">
+        Excluir
+      </button>
     </li>
   </ul>
 </template>
 
 <style>
-.logo img{
+.logo img {
   width: 100vw;
   height: 100vh;
 }
 .logo {
   width: 100vw;
   height: 10vw;
+  color: lightwhite;
 }
 </style>

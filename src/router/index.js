@@ -7,6 +7,7 @@ import ListaView from '@/views/ListaView.vue';
 import ProdutoView from '@/views/ProdutoView.vue';
 import MercadoView from '@/views/MercadoView.vue';
 import PerfilView from '@/views/PerfilView.vue';
+import EditView from '@/views/EditView.vue';
 
 const routes = [
   {
@@ -36,6 +37,11 @@ const routes = [
         path: "/mercados",
         name: "Mercados",
         component: MercadoView,
+      },
+      {
+        path: "/edit",
+        name: "edit",
+        component: EditView,
       },
       {
         path: "/produtos",
