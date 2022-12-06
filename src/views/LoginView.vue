@@ -5,7 +5,7 @@
         <h2>Login</h2>
       </div>
 
-      <form id="form" class="form" @submit.prevent="logarUsuario">
+      <form id="form" class="form" @submit.prevent="SubmitLogin">
         <div class="form-control">
           <div class="control">
             <label for="email">Username</label>
@@ -46,7 +46,7 @@ export default {
     };
   },
   methods: {
-    async logarUsuario() {
+    async SubmitLogin() {
       try {
         await axios.post("http://localhost:8000/auth/login/", this.auth);
         alert("Usuario logado com sucesso");

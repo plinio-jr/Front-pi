@@ -14,7 +14,7 @@ const routes = [
     path: "/",
     component: () => import("@/layouts/FullView.vue"),
     meta: {
-      auth: true
+      requiresAuth: true
     },
     children: [
       {
@@ -59,7 +59,7 @@ const routes = [
     path: "/",
     component: () => import("@/layouts/BlankView.vue"),
     meta: {
-      auth: true,
+      requiresAuth: true,
     },
     children: [
       {
