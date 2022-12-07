@@ -7,8 +7,8 @@
     <label><input type="checkbox" /></label>
   </div>
 </template>
-  
-  <script>
+
+<script>
 export default {
   name: "NewItem",
   data() {
@@ -21,6 +21,5 @@ export default {
   },
 };
 </script>
-  
-  <style>
-</style>
+
+<style></style>

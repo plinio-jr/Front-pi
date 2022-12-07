@@ -34,79 +34,73 @@ export default {
 
 <template>
   <div class="all">
-
     <hr />
     <div class="form">
-    <div class="title">
-      <h1>Listas:</h1>
+      <div class="title">
+        <h1>Listas:</h1>
+      </div>
+      <input type="text" v-model="lista.nome" placeholder="Titulo" />
+      <input type="text" v-model="lista.descricao" placeholder="Descrição" />
+      <input type="file" model="lista.capa" placeholder="Imagem" />
+      <button class="button is-success" @click="salvar">Salvar</button>
     </div>
-    <input type="text" v-model="lista.nome" placeholder="Titulo" />
-    <input type="text" v-model="lista.descricao" placeholder="Descrição" />
-    <input type="file" placeholder="Imagem" />
-    <button class="button is-success" @click="salvar">Salvar</button>
+    <hr />
+    <ul>
+      <li v-for="lista in listas" :key="lista.id">
+        <span @click="editar(lista)">
+          {{ lista.nome }}
+          {{ lista.descricao }}
+          {{ lista.capa }}
+        </span>
+        <button class="button is-warning" @click="editar(lista)">Editar</button>
+        <button class="button is-danger" @click="excluir(lista)">Excluir</button>
+      </li>
+    </ul>
   </div>
-  <hr />
-  <ul>
-    <li v-for="lista in listas" :key="lista.id">
-      <span @click="editar(lista)">
-        {{ lista.nome }}
-        <hr />
-        {{ lista.descricao }}
-      </span>
-      <button class="button is-warning" @click="editar(lista)">Editar</button>
-      <button class="button is-danger" @click="excluir(lista)">Excluir</button>
-    </li>
-  </ul>
-</div>
 </template>
 
 <style scoped>
-
-
-h1{
+h1 {
   text-transform: uppercase;
   font-size: 30pt;
-  font-weight: 900 ;
+  font-weight: 900;
   background: -webkit-linear-gradient(45deg, #0044ff, #00eeff, #00ffdd);
-    -webkit-background-clip: text;
-    -webkit-text-fill-color: transparent;
-  
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
 }
 
-.all{ 
-  margin-top:10rem ;
+.all {
+  margin-top: 10rem;
   width: 100%;
   height: 100vh;
 }
 
-h1{
+h1 {
   margin-top: 20px;
 }
 
-
-.title{
-  display:flex;
+.title {
+  display: flex;
   align-items: center;
   justify-content: center;
 }
 
-.form{
-  display:flex;
+.form {
+  display: flex;
   align-items: center;
   justify-content: center;
   flex-direction: column;
 }
 
 .button.is-success {
-  margin-top: 20px ;
-    width: 200px;
-    background-color: hsl(153deg, 53%, 53%);
-    border-color: transparent;
-    color: #fff;
+  margin-top: 20px;
+  width: 200px;
+  background-color: hsl(153deg, 53%, 53%);
+  border-color: transparent;
+  color: #fff;
 }
 
-input{
-  margin-top: 10px ;
+input {
+  margin-top: 10px;
 }
-
 </style>

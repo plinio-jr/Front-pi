@@ -31,7 +31,7 @@
           <i class="fas fa-check-circle"></i>
           <small></small>
         </div>
-        <button type="submit" class="botao">Entrar</button>
+        <button type="submitLogin" class="botao">Entrar</button>
       </form>
     </div>
   </div>
