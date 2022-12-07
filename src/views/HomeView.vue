@@ -9,6 +9,21 @@
           <p class="title mb-6">Bem vindo</p>
           <p class="subtitle">Precisa de ajuda para lembrar o que comprar?</p>
           <h2 class="is-size-2 has-text-centered">Listas:</h2>
+          <div>
+            <div class="card" style="width: 18rem">
+              <img src="" class="card-img-top" alt="" />
+              <div class="card-body">
+                <li v-for="lista in listas" :key="lista.id">
+                  <img src="" class="card-img-top" alt="" />
+                  <span @click="editar(lista)">
+                    <h5 class="card-title">{{ lista.nome }}</h5>
+                    <p class="card-text">{{ lista.descricao }}</p>
+                    <a href="/listas" class="btn btn-primary">Ver</a>
+                  </span>
+                </li>
+              </div>
+            </div>
+          </div>
         </div>
       </section>
     </div>
@@ -16,12 +31,35 @@
 </template>
 
 <script>
-// import { mapState } from "pinia";
+import ListasApi from "@/api/lista";
+const listasApi = new ListasApi();
 export default {
-  name: "HomeView",
-  components: {},
-  computed: {
-    // ...mapState("auth", ["user"]),
+  data() {
+    return {
+      listas: [],
+      lista: {},
+    };
+  },
+  async created() {
+    this.listas = await listasApi.buscarTodasAsListas();
+  },
+  methods: {
+    async salvar() {
+      if (this.listas.id) {
+        await listasApi.atualizarLista(this.lista);
+      } else {
+        await listasApi.adicionarLista(this.lista);
+      }
+      this.lista = {};
+      this.listas = await listasApi.buscarTodasAsListas();
+    },
+    editar(lista) {
+      Object.assign(this.lista, lista);
+    },
+    async excluir(lista) {
+      await listasApi.excluirLista(lista.id);
+      this.listas = await listasApi.buscarTodasAsLista();
+    },
   },
 };
 </script>

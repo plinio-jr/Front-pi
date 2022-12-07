@@ -56,6 +56,15 @@
   </div>
 </template>
 
-<script></script>
+<script>
+export default {
+  name: "PerfilView.vue",
+  methods: {
+    logout() {
+      this.$router.push("/login");
+    },
+  },
+};
+</script>
 
 <style></style>
