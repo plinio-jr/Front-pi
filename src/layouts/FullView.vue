@@ -68,10 +68,7 @@
       </div>
     </nav>
 
-    <div
-      class="is-loading-bar has-text-centered"
-      v-bind:class="{ 'is-loading': $store.state.isLoading }"
-    >
+    <div class="is-loading-bar has-text-centered">
       <div class="lds-dual-ring"></div>
     </div>
 
@@ -80,14 +77,10 @@
     </section>
   </div>
 </template>
-  
-  <style>
 
-  
+<style></style>
 
-</style>
-  
-  <script>
+<script>
 import AccountEdit from "vue-material-design-icons/AccountEdit.vue";
 import Home from "vue-material-design-icons/Home.vue";
 import StoreMarker from "vue-material-design-icons/StoreMarkerOutline.vue";
@@ -113,4 +106,3 @@ export default {
   },
 };
 </script>
-  
