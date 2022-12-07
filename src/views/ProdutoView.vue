@@ -33,9 +33,6 @@ export default {
 </script>
 
 <template>
-  <div class="logo">
-    <img src="@/assets/image2.webp" />
-  </div>
   <h1>Produtos</h1>
   <div class="form">
     <input type="text" v-model="produto.nome" placeholder="nome" />
@@ -60,8 +57,47 @@ export default {
 </template>
 
 <style scoped>
-.logo img {
-  width: 100vw;
+h1 {
+  text-transform: uppercase;
+  font-size: 30pt;
+  font-weight: 900;
+  background: -webkit-linear-gradient(45deg, #0044ff, #00eeff, #00ffdd);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+
+.all {
+  margin-top: 10rem;
+  width: 100%;
   height: 100vh;
+}
+
+h1 {
+  margin-top: 20px;
+}
+
+.title {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.form {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+}
+
+.button.is-success {
+  margin-top: 20px;
+  width: 200px;
+  background-color: hsl(153deg, 53%, 53%);
+  border-color: transparent;
+  color: #fff;
+}
+
+input {
+  margin-top: 10px;
 }
 </style>
