@@ -7,7 +7,7 @@ export const useAuthStore = defineStore("auth", () => {
   const token = ref("");
   async function login(user) {
     try {
-      const { data } = await axios.post("http://localhost:8000/token/", user);
+      const { data } = await axios.post("http://localhost:8000/auth/registration/", this.auth);
       token.value = data.access;
       return Promise.resolve();
     } catch (e) {

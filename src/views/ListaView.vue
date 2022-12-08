@@ -13,7 +13,8 @@ export default {
   },
   methods: {
     async salvar() {
-      if (this.listas.id) {
+      if (this.lista.id) {
+        
         await listasApi.atualizarLista(this.lista);
       } else {
         await listasApi.adicionarLista(this.lista);
@@ -43,19 +44,20 @@ export default {
       <input type="text" v-model="lista.descricao" placeholder="Descrição" />
       <input type="file" model="lista.capa" placeholder="Imagem" />
       <button class="button is-success" @click="salvar">Salvar</button>
+      
+      <ul>
+        <li v-for="lista in listas" :key="lista.id">
+          <span @click="editar(lista)">
+            {{ lista.nome }}
+            {{ lista.descricao }}
+            {{ lista.capa }}
+          </span>
+          <button class="button is-warning" @click="editar(lista)">Editar</button>
+          <button class="button is-danger" @click="excluir(lista)">Excluir</button>
+        </li>
+      </ul>
     </div>
     <hr />
-    <ul>
-      <li v-for="lista in listas" :key="lista.id">
-        <span @click="editar(lista)">
-          {{ lista.nome }}
-          {{ lista.descricao }}
-          {{ lista.capa }}
-        </span>
-        <button class="button is-warning" @click="editar(lista)">Editar</button>
-        <button class="button is-danger" @click="excluir(lista)">Excluir</button>
-      </li>
-    </ul>
   </div>
 </template>
 
@@ -69,10 +71,21 @@ h1 {
   -webkit-text-fill-color: transparent;
 }
 
+ul{
+  margin-top: 3rem;
+}
+
 .all {
   margin-top: 10rem;
   width: 100%;
   height: 100vh;
+}
+
+li{
+  display: flex;
+  align-items: center;
+  justify-content:center ;
+  flex-direction: column;
 }
 
 h1 {

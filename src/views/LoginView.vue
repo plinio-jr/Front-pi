@@ -16,13 +16,13 @@
           <small></small>
         </div>
 
-        <!-- <div class="form-control">
+        <div class="form-control">
           <label for="email">Email</label>
           <input type="text" v-model="auth.email" />
           <i class="fas fa-exclamation-circle"></i>
           <i class="fas fa-check-circle"></i>
           <small></small>
-        </div> -->
+        </div>
 
         <div class="form-control">
           <label for="password">Senha</label>
@@ -31,30 +31,24 @@
           <i class="fas fa-check-circle"></i>
           <small></small>
         </div>
-        <button type="submitLogin" class="botao">Entrar</button>
+       <button type="submitLogin" class="botao">Entrar</button> 
       </form>
     </div>
   </div>
 </template>
 
 <script>
-import { mapStores, mapState, mapActions } from "pinia";
-import { useAuthStore } from "@/stores/auth";
+import axios from "axios";
 export default {
   data() {
     return {
       auth: {},
     };
   },
-  computed: {
-    ...mapStores(useAuthStore),
-    ...mapState(useAuthStore, ["user"]),
-  },
   methods: {
-    ...mapActions(useAuthStore, ["login"]),
     async SubmitLogin() {
       try {
-        await this.login(this.auth);
+        await axios.post("http://localhost:8000/auth/login/", this.auth);
         alert("Usuario logado com sucesso");
         this.$router.push("/home");
       } catch (e) {
