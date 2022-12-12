@@ -48,7 +48,7 @@ export default {
   methods: {
     async SubmitLogin() {
       try {
-        await axios.post("http://localhost:8000/auth/login/", this.auth);
+        await axios.post("https://pliniojr.pythonanywhere.com/auth/login/", this.auth);
         alert("Usuario logado com sucesso");
         this.$router.push("/home");
       } catch (e) {

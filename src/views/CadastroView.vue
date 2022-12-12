@@ -57,7 +57,7 @@ export default {
   methods: {
     async criarUsuario() {
       try {
-        await axios.post("http://localhost:8000/auth/registration/", this.auth);
+        await axios.post("https://pliniojr.pythonanywhere.com/auth/registration/", this.auth);
         alert("Usuario criado com sucesso");
         this.$router.push("/login");
       } catch (e) {
