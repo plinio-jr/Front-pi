@@ -152,4 +152,12 @@ export default {
   visibility: visible;
   color: #e74c3c;
 }
+.logo img {
+  width: 100vw;
+  height: 100vh;
+}
+.logo {
+  width: 100vw;
+  height: 10vw;
+}
 </style>
