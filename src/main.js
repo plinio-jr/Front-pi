@@ -10,7 +10,7 @@ const app = createApp(App);
 app.use(router);
 app.use(createPinia());
 
-axios.defaults.baseURL = "http://127.0.0.1:8000";
+axios.defaults.baseURL = "https://pliniojr.pythonanywhere.com/";
 
 axios.interceptors.request.use((config) => {
   const authStore = useAuthStore();
